@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,9 +16,19 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDividerModule} from '@angular/material/divider';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { MiddleComponent } from './pages/middle/middle.component'
+import { JwtInterceptorService } from './util/jwt-interceptor.service';
+import { UserDashBoardComponent } from './UserDashboard/user-dash-board/user-dash-board.component';
+import { ProfileComponent } from './UserDashboard/profile/profile.component';
+import { ShowcontactComponent } from './UserDashboard/showcontact/showcontact.component';
+import { AddcontactComponent } from './UserDashboard/addcontact/addcontact.component';
+import { ContactdetailsComponent } from './UserDashboard/contactdetails/contactdetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +36,20 @@ import {MatDividerModule} from '@angular/material/divider';
     HomeComponent,
     SignupComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MiddleComponent,
+    UserDashBoardComponent,
+    ProfileComponent,
+    ShowcontactComponent,
+    AddcontactComponent,
+    ContactdetailsComponent
   ],
   imports: [
+    MatPaginatorModule,
+    MatTableModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDividerModule,
     MatFormFieldModule,
     MatSnackBarModule,
@@ -42,7 +64,13 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

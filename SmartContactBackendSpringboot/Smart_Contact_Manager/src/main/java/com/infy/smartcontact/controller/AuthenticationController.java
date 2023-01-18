@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 @RestController
+@CrossOrigin("*")
 public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;

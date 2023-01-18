@@ -1,1 +1,47 @@
-<p>signup works!</p>
+
+<div class="login">
+    <div class="container">
+        <h1>Fill Your Details Correctly</h1>
+        <form (ngSubmit)="signup(signupuser)" #signupForm="ngForm" autocomplete="off">
+            <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter Full Name</mat-label>
+                    <input matInput type="text" id="name" name="name" [(ngModel)]="signupuser.name" #name="ngModel" required>
+                    <mat-error *ngIf="name.touched&&name.invalid">Name is required</mat-error>
+                  </mat-form-field>
+            </div>
+            
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter Email Address</mat-label>
+                    <input matInput type="email" id="username" name="username" [(ngModel)]="signupuser.username" required #username="ngModel">
+                    <mat-error *ngIf="username.touched&&username.invalid">Username is required</mat-error>
+                  </mat-form-field>
+            </div>
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" id="password" [(ngModel)]="signupuser.password" required #password="ngModel">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.touched&&password.invalid">Paasword is required</mat-error>
+                      </mat-form-field>
+                </div>
+              
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Description</mat-label>
+                        <input matInput type="txtarea" id="description" name="description" [(ngModel)]="signupuser.description">
+                      </mat-form-field>
+                </div>
+            <div class="col">
+                <button mat-raised-button color="accent" [disabled]="signupForm.invalid">Submit</button>
+            </div>
+              
+              </div>
+        </form>
+    </div>
+</div>
+

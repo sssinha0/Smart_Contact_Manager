@@ -23,15 +23,25 @@ public class User implements UserDetails {
 
     private String name;
     private String password;
+    private String description;
 
-    public User(Long id, String username, String name, String password) {
+    public User(Long id, String username, String name, String password, String description) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.password = password;
+        this.description = description;
     }
 
     public User() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {

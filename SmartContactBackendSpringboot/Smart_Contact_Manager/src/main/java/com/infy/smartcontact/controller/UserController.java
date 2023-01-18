@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/user")
 public class UserController {
     private ModelMapper modelMapper=new ModelMapper();
@@ -24,6 +25,7 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
     @PostMapping("/signup")
     private ResponseEntity<?> createNewUser(@Valid @RequestBody Signup signup){
+        System.out.println(signup);
         User user=modelMapper.map(signup, User.class);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userService.createNewUser(user);

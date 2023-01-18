@@ -54,7 +54,7 @@ public class MySecurityConfig {
                     .cors()
                     .disable()
                     .authorizeRequests()
-                    .requestMatchers("/generate-token","/user/signup","/user/login").permitAll()
+                    .requestMatchers("/generate-token","/user/signup").permitAll()
                     .requestMatchers(HttpMethod.OPTIONS).permitAll()
                     .anyRequest().authenticated()
                     .and()

@@ -1,0 +1,28 @@
+<mat-grid-list cols="20" rowHeight="257px">
+    <mat-grid-tile colspan="5" rowspan="2">
+        <mat-card class="sidenav">
+            <mat-list class="list">
+                <mat-list-item>
+                    <mat-icon style="height:15px;width: 15px;">widgets</mat-icon>
+                </mat-list-item>
+                <mat-list-item>
+                    <button mat-button [routerLink]="['profile']" ><mat-icon>account_circle</mat-icon>  Profile</button>
+                </mat-list-item>
+               <mat-list-item>
+                 <button mat-button [routerLink]="['show-contact']"> <mat-icon>contact_page</mat-icon> Show Contact</button>
+               </mat-list-item>
+               <mat-list-item>
+                <button mat-button [routerLink]="['add-contact']"><mat-icon>add_ic_call</mat-icon>  Add Contact</button>
+               </mat-list-item>
+               <mat-list-item>
+                <button mat-button (click)="enableDisableRule()" 
+                    [ngClass]="{'white' : toggle, 'red': !toggle}"><mat-icon>exit_to_app</mat-icon> Exit</button>
+               </mat-list-item>
+            </mat-list>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="15" rowspan="2" >
+        <mat-card style="height: 100%;width: 100%;">
+        <router-outlet></router-outlet></mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>

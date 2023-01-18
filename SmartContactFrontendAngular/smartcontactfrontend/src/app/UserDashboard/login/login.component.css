@@ -1,0 +1,26 @@
+.login{
+    display: grid;
+    width: 1300px;
+    grid-template-columns: (10,1fr);
+    grid-template-rows: (10,1fr);
+}
+.container{
+    width: 400px;
+    height: 250px;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    grid-row-start: 0;
+    background-color: rgb(219, 255, 253);
+    border-radius: 10px;
+}
+.row{
+   display: grid;
+   grid-template-columns: repeat(10,1fr);
+   grid-template-rows: repeat(10,1fr);
+}
+.col{
+    grid-column-start: 5;
+    grid-column-end: 7;
+    justify-self:center;
+}
+

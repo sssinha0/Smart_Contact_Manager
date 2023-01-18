@@ -1,17 +1,27 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="!isLoggedIn">
     <span>Smart Contact Manager</span>
     <span class="example-spacer"></span>
     <button mat-button>
-        Home
+        <a [routerLink]="'home'">Home</a>
     </button>
     <button mat-button>
-        About
+        <a [routerLink]="'/about'">About</a>
     </button>
     <button mat-button>
-        Login
+        <a [routerLink]="'/login'">Login</a>
     </button>
     <button mat-button>
-        Signup
+        <a [routerLink]="'/signup'">Signup</a>
+    </button>
+  </mat-toolbar>
+  <mat-toolbar color="primary" *ngIf="isLoggedIn">
+    <span>Smart Contact Manager</span>
+    <span class="example-spacer"></span>
+    <button mat-button>
+        {{userdata.name}}
+    </button>
+    <button mat-button (click)="logout()">
+        Logout
     </button>
   </mat-toolbar>
   

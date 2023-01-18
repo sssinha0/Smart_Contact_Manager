@@ -1,0 +1,18 @@
+*{
+    background-color: white;
+}
+.sidenav{
+  height: 100%;
+  width: 100%;
+
+}
+.list{
+    width: 200px;
+}
+.white {
+    background-color: white;
+}
+
+.red {
+    background-color: rgb(167, 225, 252);
+}

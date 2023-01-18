@@ -1,1 +1,34 @@
-<p>login works!</p>
+
+<div class="login">
+    <div class="container">
+        <h1>Login Here</h1>
+        <form (ngSubmit)="login(loginuser)" #loginForm="ngForm" autocomplete="off">
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Email Address</mat-label>
+                        <input matInput type="email" id="username" name="username" [(ngModel)]="loginuser.username"
+                           #username="ngModel" required>
+                        <mat-error *ngIf="username.touched&&username.invalid">Username is Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" id="password" name="password"
+                            [(ngModel)]="loginuser.password" #password="ngModel" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.touched&&password">Password is Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <button mat-raised-button color="accent" [disabled]="loginForm.invalid" type="submit">Login</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
