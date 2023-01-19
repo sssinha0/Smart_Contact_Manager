@@ -29,8 +29,10 @@ import { ProfileComponent } from './UserDashboard/profile/profile.component';
 import { ShowcontactComponent } from './UserDashboard/showcontact/showcontact.component';
 import { AddcontactComponent } from './UserDashboard/addcontact/addcontact.component';
 import { ContactdetailsComponent } from './UserDashboard/contactdetails/contactdetails.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
   declarations: [
+    
     AppComponent,
     LoginComponent,
     HomeComponent,
@@ -45,6 +47,7 @@ import { ContactdetailsComponent } from './UserDashboard/contactdetails/contactd
     ContactdetailsComponent
   ],
   imports: [
+    CKEditorModule,
     MatPaginatorModule,
     MatTableModule,
     HttpClientModule,

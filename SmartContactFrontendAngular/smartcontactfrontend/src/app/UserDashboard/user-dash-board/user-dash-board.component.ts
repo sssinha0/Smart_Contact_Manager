@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-user-dash-board',
@@ -7,15 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashBoardComponent implements OnInit {
   toggle = true;
-  status = 'Enable'; 
   
  
-  constructor() { }
+  constructor(private router:Router,private userService:UserService) { }
 
   ngOnInit(): void {
   }
   enableDisableRule() {
     this.toggle = !this.toggle;
-    this.status = this.toggle ? 'Enable' : 'Disable';
+}
+logout(){
+  localStorage.removeItem("token");
+  this.userService.loginStatusSubject.next(false);
+  this.router.navigate(['/home']);
 }
 }

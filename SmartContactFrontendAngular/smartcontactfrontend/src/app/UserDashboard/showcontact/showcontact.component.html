@@ -1,47 +1,17 @@
 <div >
-    <table mat-table [dataSource]="dataSource" class="show">
-  
-      <!-- Position Column -->
-      <ng-container matColumnDef="#">
-        <th mat-header-cell *matHeaderCellDef> # </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef> Phone </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="work">
-    <th mat-header-cell *matHeaderCellDef> Work </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-<!-- Symbol Column -->
-<ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
-    <td mat-cell ><mat-action-list>
-        <button mat-icon-button><mat-icon>mode_edit</mat-icon></button>
-        <button mat-icon-button><mat-icon>delete</mat-icon></button>
-    </mat-action-list></td>
-  </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
+  <table>
+    <tr>
+      <th class="ml20">#</th>
+      <th class="ml20">Name</th>
+      <th class="ml20">Email</th>
+      <th class="ml20">Nick Name</th>
+      <th class="ml20">Phone</th>
+      <th class="ml20">Action</th>
+    </tr>
+    <tr>
+      
+    </tr>
+  </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                    showFirstLastButtons
                    aria-label="Select page of periodic elements">

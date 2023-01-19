@@ -1,0 +1,19 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 90%;
+    margin-left: 20px;
+  }
+  .text-center{
+    justify-content: center;
+  }
+  .icon{
+    margin-top: 15px;
+  }
+  .ml20{
+    margin-left: 20px;
+  }

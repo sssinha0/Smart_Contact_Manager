@@ -15,8 +15,7 @@
                 <button mat-button [routerLink]="['add-contact']"><mat-icon>add_ic_call</mat-icon>  Add Contact</button>
                </mat-list-item>
                <mat-list-item>
-                <button mat-button (click)="enableDisableRule()" 
-                    [ngClass]="{'white' : toggle, 'red': !toggle}"><mat-icon>exit_to_app</mat-icon> Exit</button>
+                <button mat-button (click)="logout()"><mat-icon>exit_to_app</mat-icon> Exit</button>
                </mat-list-item>
             </mat-list>
         </mat-card>

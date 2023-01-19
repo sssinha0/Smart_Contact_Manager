@@ -20,26 +20,26 @@ export class HeaderComponent implements OnInit {
     this.userService.loginStatusSubject.asObservable().subscribe(
       (data)=>{
         this.isLoggedIn=true;
+        this.userService.currentUser().subscribe(
+          (data:any)=>{
+            this.userdata=data;
+            console.log("Sucess in header");
+          }
+          ,
+          (err:any)=>{
+            console.log("Error in the header file");
+          }
+        )
+      },
+      (err)=>{
+        this.isLoggedIn=false;
       }
     )
-    this.userService.currentUser().subscribe(
-      (data:any)=>{
-        this.userdata=data;
-        this.isLoggedIn=true;
-        console.log("Sucess in header");
-      }
-      ,
-      (err:any)=>{
-        console.log("Error in the header file");
-      }
-    )
+    
   }
   logout(){
     localStorage.removeItem("token");
     this.isLoggedIn=false;
     this.router.navigate(['']);
-  }
-  receiveMessage($event: string) {
-    this.message = $event;
   }
 }
